@@ -7,7 +7,7 @@
     android:background="@android:color/white"
     tools:context=".CadastroActivity">
 
-
+    <!-- Cabeçalho (sem alterações) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
         android:layout_width="0dp"
@@ -28,161 +28,204 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/header">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="24dp"> <!-- Aumentei o padding para mais respiro -->
 
-            <!-- Campos de Cadastro -->
-            <EditText
-                android:id="@+id/editTextNomeCompleto"
+            <!-- INÍCIO DAS ALTERAÇÕES VISUAIS -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutNomeCompleto"
+                style="@style/Widget.App.TextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextNomeCompleto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nome Completo"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutCpfCnpj"
+                style="@style/Widget.App.TextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutNomeCompleto">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextCpfCnpj"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="CPF/CNPJ"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutDataNascimento"
+                style="@style/Widget.App.TextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutCpfCnpj">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextDataNascimento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Data de Nascimento (DD/MM/AAAA)"
+                    android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutCep"
+                style="@style/Widget.App.TextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutDataNascimento">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextCep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="CEP"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutEstado"
+                style="@style/Widget.App.TextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutCep">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextEstado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Estado"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutCidade"
+                style="@style/Widget.App.TextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutEstado">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextCidade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Cidade"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutBairro"
+                style="@style/Widget.App.TextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutCidade">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextBairro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Bairro"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutRua"
+                style="@style/Widget.App.TextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutBairro">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextRua"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Rua"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutEmail"
+                style="@style/Widget.App.TextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutRua">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextEmailCadastro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutSenha"
+                style="@style/Widget.App.TextInputLayout"
+                app:endIconMode="password_toggle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutEmail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextSenhaCadastro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Senha"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Spinner com estilo Material -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutTipoUsuario"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Nome Completo"
-                android:inputType="textPersonName"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="12dp"
+                android:hint="Tipo de Usuário"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutSenha"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
+                app:layout_constraintEnd_toEndOf="parent">
 
-            <EditText
-                android:id="@+id/editTextCpfCnpj"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="CPF/CNPJ"
-                android:inputType="text"
-                app:layout_constraintTop_toBottomOf="@id/editTextNomeCompleto"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
-
-            <EditText
-                android:id="@+id/editTextDataNascimento"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Data de Nascimento (DD/MM/AAAA)"
-                android:inputType="date"
-                app:layout_constraintTop_toBottomOf="@id/editTextCpfCnpj"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
-
-            <EditText
-                android:id="@+id/editTextCep"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="CEP"
-                android:inputType="number"
-                app:layout_constraintTop_toBottomOf="@id/editTextDataNascimento"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
-
-            <EditText
-                android:id="@+id/editTextEstado"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Estado"
-                android:inputType="text"
-                app:layout_constraintTop_toBottomOf="@id/editTextCep"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
-
-            <EditText
-                android:id="@+id/editTextCidade"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Cidade"
-                android:inputType="text"
-                app:layout_constraintTop_toBottomOf="@id/editTextEstado"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
-
-            <EditText
-                android:id="@+id/editTextBairro"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Bairro"
-                android:inputType="text"
-                app:layout_constraintTop_toBottomOf="@id/editTextCidade"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
-
-            <EditText
-                android:id="@+id/editTextRua"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Rua"
-                android:inputType="text"
-                app:layout_constraintTop_toBottomOf="@id/editTextBairro"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
-
-            <EditText
-                android:id="@+id/editTextEmailCadastro"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                app:layout_constraintTop_toBottomOf="@id/editTextRua"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
-
-            <EditText
-                android:id="@+id/editTextSenhaCadastro"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Senha"
-                android:inputType="textPassword"
-                app:layout_constraintTop_toBottomOf="@id/editTextEmailCadastro"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
-
-            <TextView
-                android:id="@+id/labelTipoUsuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tipo de Usuário:"
-                android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@id/editTextSenhaCadastro"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Spinner
-                android:id="@+id/spinnerTipoUsuario"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                app:layout_constraintTop_toBottomOf="@id/labelTipoUsuario"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="4dp"/>
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteTipoUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    tools:ignore="LabelFor" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/buttonCadastrar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Cadastrar"
                 android:layout_marginTop="24dp"
-                app:layout_constraintTop_toBottomOf="@id/spinnerTipoUsuario"
+                android:padding="12dp"
+                android:text="Cadastrar"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutTipoUsuario" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
